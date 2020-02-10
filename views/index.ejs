@@ -20,16 +20,12 @@
   </head>
 
   <body onload="initialize()">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6d7ks_JmzqIlMPoI1XgHFrtCjZYVK7KA&callback=initMap"></script>
     <script src="/Public/jsbin/geocoding.js/"></script>
-    <script>
-      encodebutton = document.getElementsByName("encodebutton");
-      console.log(encodebutton);
-      encodebutton.onclick = letMeCallYou();
-    </script>
 
     <img src = "/Public/imgbin/image.jpeg">
     <input id="address" type="textbox" value="Sydney, NSW">
-    <input id="encodebutton" type="button" value="Encode">
+    <input id="encodebutton" type="button" value="Encode" onclick="letMeCallYou()">
 
   </body>
   
