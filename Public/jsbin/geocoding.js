@@ -11,8 +11,10 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
 }
 
-function codeAddress() {
-  var address = document.getElementById('address').value;
+function codeAddress(address) {
+  if (address= false) {
+    var address = document.getElementById('address').value;
+  }
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == 'OK') {
       map.setCenter(results[0].geometry.location);
@@ -20,6 +22,7 @@ function codeAddress() {
           map: map,
           position: results[0].geometry.location
       });
+      console.log("Lat Lng "+ results[0].geometry.location)
     } else {
       alert('Geocode was not successful for the following reason: ' + status);
     }

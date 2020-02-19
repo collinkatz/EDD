@@ -7,7 +7,13 @@ app.get('/Public/imgbin/image.jpeg', function (request, response) {
 })
 
 app.get('/Public/jsbin/geocoding.js', function (request, response) {
+  response.type('.js')
   response.sendFile(path.join(__dirname, '/Public/jsbin/geocoding.js'))
+})
+
+app.get('/Public/jsbin/Database.js', function (request, response) {
+  response.type('.js')
+  response.sendFile(path.join(__dirname, '/Public/jsbin/Database.js'))
 })
 
 app.get('/', function (request, response) {
