@@ -12,8 +12,14 @@ function initialize() {
 }
 
 function codeAddress(origin, address) {
-  var address = document.getElementById('address').value;
-  
+  if (origin == 'Database') {
+    var address = address;
+    console.log(origin)
+  } else {
+    var address = document.getElementById('address').value;
+    console.log('Free')
+  }
+  // var address = document.getElementById('address').value;
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == 'OK') {
       map.setCenter(results[0].geometry.location);
@@ -23,7 +29,7 @@ function codeAddress(origin, address) {
       });
       console.log("Lat Lng "+ results[0].geometry.location)
     } else {
-      alert('Geocode was not successful for the following reason: ' + status);
+      alert('Geocode was not successful for the following reason: ' + status + ' ' + address);
     }
   });
 }
