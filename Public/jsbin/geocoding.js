@@ -3,18 +3,17 @@ var map;
 
 function initialize() {
   geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(0, 0);
+  var latlng = new google.maps.LatLng(39.205343, -76.8112909);
   var mapOptions = {
-    zoom: 8,
+    zoom: 16,
     center: latlng
   }
   map = new google.maps.Map(document.getElementById('map'), mapOptions);
 }
 
-function codeAddress(address) {
-  if (address= false) {
-    var address = document.getElementById('address').value;
-  }
+function codeAddress(origin, address) {
+  var address = document.getElementById('address').value;
+  
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == 'OK') {
       map.setCenter(results[0].geometry.location);
