@@ -8,7 +8,7 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 90%;
+        height: 95%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -19,17 +19,15 @@
     </style>
     <!-- <script async defer src="https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyA6d7ks_JmzqIlMPoI1XgHFrtCjZYVK7KA"></script> -->
     <script async defer type='text/javascript' src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6d7ks_JmzqIlMPoI1XgHFrtCjZYVK7KA&callback=initMap"></script>
+    <script type='text/javascript' src="/Public/jsbin/geocoding.js/"></script>
+    <script type='text/javascript' src="/Public/jsbin/Database.js/"></script>
   </head>
 
   <body onload="initialize()">
     <input id="address" type="textbox" value="Sydney, NSW">
     <input id="encodebutton" type="button" value="Encode" onclick="codeAddress()">
     <input id="databasebutton" type="button" value="Database" onclick="DatabaseInit()">
-
     <div id="map"></div>
-    <script type='text/javascript' src="/Public/jsbin/geocoding.js/"></script>
-
-    <script type='text/javascript' src="/Public/jsbin/Database.js/"></script>
   </body>
   
 </html>

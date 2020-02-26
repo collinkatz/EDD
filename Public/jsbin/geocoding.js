@@ -14,10 +14,10 @@ function initialize() {
 function codeAddress(origin, address) {
   if (origin == 'Database') {
     var address = address;
-    console.log(origin)
+    console.log('Request Origin: '+origin)
   } else {
     var address = document.getElementById('address').value;
-    console.log('Free')
+    console.log('Request Origin: '+'Free')
   }
   // var address = document.getElementById('address').value;
   geocoder.geocode( { 'address': address}, function(results, status) {
@@ -27,7 +27,8 @@ function codeAddress(origin, address) {
           map: map,
           position: results[0].geometry.location
       });
-      console.log("Lat Lng "+ results[0].geometry.location)
+      console.log(address+" at Lat Lng: "+ results[0].geometry.location)
+      return results[0].geometry.location;
     } else {
       alert('Geocode was not successful for the following reason: ' + status + ' ' + address);
     }
