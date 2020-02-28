@@ -16,6 +16,10 @@ app.get('/Public/jsbin/Database.js', function (request, response) {
   response.sendFile(path.join(__dirname, '/Public/jsbin/Database.js'))
 })
 
+app.get('/Ear/', function (request, response) {
+  console.log(request.header)
+})
+
 app.get('/', function (request, response) {
   response.render('index')
 })
