@@ -17,7 +17,7 @@ app.get('/Public/jsbin/Database.js', function (request, response) {
 })
 
 app.get('/Ear/', function (request, response) {
-  console.log(request.header)
+  console.log(request.header.toString)
 })
 
 app.get('/', function (request, response) {
