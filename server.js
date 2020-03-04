@@ -17,7 +17,8 @@ app.get('/Public/jsbin/Database.js', function (request, response) {
 })
 
 app.get('/Ear/', function (request, response) {
-  console.log(request.header.toString)
+  console.log(request.query.latlng)
+  response.send("Hello Raspberry Pi!")
 })
 
 app.get('/', function (request, response) {
