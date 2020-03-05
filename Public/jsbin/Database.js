@@ -1,9 +1,12 @@
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
+//              Depricated                \\
+//\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\\
 var ProductIDData = {
 
-    // "RSBMD1": {
-    //     Address: 'Long Reach High School Columbia Maryland',
-    //     LatLng: [39.205343, -76.8112909]
-    // },
+    "RSBMD1": {
+        Address: 'Long Reach High School Columbia Maryland',
+        LatLng: [39.205343, -76.8112909]
+    },
     "RSBMD2": {
         Address: '6216 Stratford Court Elkridge Maryland',
         LatLng: [39.199814, -76.7787759]

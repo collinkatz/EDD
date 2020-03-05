@@ -1,5 +1,6 @@
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('Z:/My Documents/EDD/db/ProductIDData.db');
+//var db = new sqlite3.Database('Z:/My Documents/EDD/db/ProductIDData.db');
+var db = new sqlite3.Database('C:/Users/trowe/Desktop/CollinandSamEDDproject/db/ProductIDData.db');
 
 var ProductIDData = {
 
@@ -18,13 +19,22 @@ var ProductIDData = {
 };
 
 db.serialize(function() {
-    db.run("CREATE TABLE ProductData (id TEXT, address TEXT, latlng INT)");
+    db.run("CREATE TABLE ProductData (id TEXT, address TEXT, latlng ARRAY)");
    
     var stmt = db.prepare("INSERT INTO ProductData VALUES (?,?,?)");
     for (var key in ProductIDData) {
-        stmt.run( "ProductData " + key );
+        stmt.run( key );
     }
     stmt.finalize();
+
+    for (var key in ProductIDData) {
+        db.run(`INSERT INTO ProductData(address) VALUES(?)`, [ProductIDData[key].Address], function(err) {
+            if (err) {
+              return console.log(err.message);
+            }
+            // get the last insert id
+        });
+    }
 
     db.each("SELECT rowid AS id, id FROM ProductData", function(err, row) {
         console.log(row.id + ": " + row.info);
