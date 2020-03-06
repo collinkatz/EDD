@@ -19,25 +19,16 @@ var ProductIDData = {
 };
 
 db.serialize(function() {
-    db.run("CREATE TABLE ProductData (id TEXT, address TEXT, latlng ARRAY)");
+    db.run("CREATE TABLE ProductData (id TEXT PRIMARY KEY, address TEXT, lat REAL, lng REAL)");
    
-    var stmt = db.prepare("INSERT INTO ProductData VALUES (?,?,?)");
+    var stmt = db.prepare("INSERT INTO ProductData(id, address, lat, lng) VALUES(?,?,?,?)");
     for (var key in ProductIDData) {
-        stmt.run( key );
+        stmt.run( [ key, ProductIDData[key].Address, ProductIDData[key].LatLng[0], ProductIDData[key].LatLng[1] ] );
     }
     stmt.finalize();
 
-    for (var key in ProductIDData) {
-        db.run(`INSERT INTO ProductData(address) VALUES(?)`, [ProductIDData[key].Address], function(err) {
-            if (err) {
-              return console.log(err.message);
-            }
-            // get the last insert id
-        });
-    }
-
-    db.each("SELECT rowid AS id, id FROM ProductData", function(err, row) {
-        console.log(row.id + ": " + row.info);
+    db.each("SELECT id Id, address Address, lat Lat, lng Lng FROM ProductData", [], function(err, row) {
+        console.log(row.Id+" : "+row.Address+" : "+row.Lat+" : "+row.Lng);
     });
 
     //console.log(db.get(10))
