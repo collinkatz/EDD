@@ -35,6 +35,14 @@ function codeAddress(origin, address) {
   });
 }
 
+function placeMarker(origin, address) {
+  map.setCenter(address);
+    var marker = new google.maps.Marker({
+    map: map,
+    position: address
+  });
+}
+
 function letMeCallYou()
 {
   console.log("HELLO WORLD!")

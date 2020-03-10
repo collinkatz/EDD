@@ -43,6 +43,12 @@ function NewPI(Address, LatLng) {
         console.log(row.Id+" : "+row.Address+" : "+row.Lat+" : "+row.Lng);
     });
 }
+
+function LoadForMap() {
+    db.each("SELECT id Id, address Address, lat Lat, lng Lng FROM ProductData", [], function(err, row) {
+        var codedAddress = placeMarker('Database', [row.Lat, row.Lng]);
+    });
+}
 //Test Address
 NewPI("River Hill High School Clarksville Maryland", ["Null", "Null"]);
 db.close();

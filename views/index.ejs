@@ -20,13 +20,13 @@
     <!-- <script async defer src="https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyA6d7ks_JmzqIlMPoI1XgHFrtCjZYVK7KA"></script> -->
     <script async defer type='text/javascript' src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6d7ks_JmzqIlMPoI1XgHFrtCjZYVK7KA&callback=initMap"></script>
     <script type='text/javascript' src="/Public/jsbin/geocoding.js/"></script>
-    <script type='text/javascript' src="/Public/jsbin/SQlite.js/"></script>
+    <script type='text/javascript' src="/Public/jsbin/SQlite.js"></script>
   </head>
 
   <body onload="initialize()">
     <input id="address" type="textbox" value="Sydney, NSW">
     <input id="encodebutton" type="button" value="Encode" onclick="codeAddress()">
-    <input id="databasebutton" type="button" value="Database" onclick="DatabaseInit()">
+    <input id="databasebutton" type="button" value="Database" onclick="LoadForMap()">
     <div id="map"></div>
   </body>
   
