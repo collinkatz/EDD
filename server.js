@@ -11,9 +11,9 @@ app.get('/Public/jsbin/geocoding.js', function (request, response) {
   response.sendFile(path.join(__dirname, '/Public/jsbin/geocoding.js'))
 })
 
-app.get('/Public/jsbin/Database.js', function (request, response) {
+app.get('/Public/jsbin/SQlite.js', function (request, response) {
   response.type('.js')
-  response.sendFile(path.join(__dirname, '/Public/jsbin/Database.js'))
+  response.sendFile(path.join(__dirname, '/Public/jsbin/SQlite.js'))
 })
 
 app.get('/Ear/', function (request, response) {
