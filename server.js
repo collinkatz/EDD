@@ -28,9 +28,8 @@ app.get('/', function (request, response) {
 })
 
 app.get('/Ear/GetPoints/', function (request, response) {
-  response.send(
-    
-  );
+  var prepFile = LoadForMap()
+  response.send("help");
 })
 
 app.listen(3000, function() {
@@ -40,8 +39,8 @@ app.set('view engine', 'ejs');
 
 // SQLite ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('Z:/My Documents/EDD/db/ProductIDData.db');
-//var db = new sqlite3.Database('C:/Users/trowe/Desktop/CollinandSamEDDproject/db/ProductIDData.db');
+//var db = new sqlite3.Database('Z:/My Documents/EDD/db/ProductIDData.db');
+var db = new sqlite3.Database('C:/Users/trowe/Desktop/CollinandSamEDDproject/db/ProductIDData.db');
 
 class RaspberryPI {
     constructor(Name, Address, LatLng) {
@@ -81,15 +80,17 @@ function NewPI(Address, LatLng) {
 
     //Test
     db.each("SELECT id Id, address Address, lat Lat, lng Lng FROM ProductData", [], function(err, row) {
-        console.log(row.Id+" : "+row.Address+" : "+row.Lat+" : "+row.Lng);
+        console.log("2: "+row.Id+" : "+row.Address+" : "+row.Lat+" : "+row.Lng);
     });
 }
 
 function LoadForMap() {
-    db.each("SELECT id Id, address Address, lat Lat, lng Lng FROM ProductData", [], function(err, row) {
-      return [row.Lat, row.Lng]
-    });
+  var sendFile = []
+  db.each("SELECT id Id, address Address, lat Lat, lng Lng FROM ProductData", [], function(err, row) {
+    sendFile[sendFile.length] = [row.Lat, row.Long]
+  });
+  return sendFile
 }
 //Test Address
 NewPI("River Hill High School Clarksville Maryland", ["Null", "Null"]);
-db.close();
+//db.close();

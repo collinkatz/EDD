@@ -23,7 +23,7 @@
     <script>
       function LoadForMap() {
         fetch('/Ear/GetPoints/').then(function(response) {
-          
+          console.log('client recieving response: '+ '['+response.body+']')
         });
       }
     </script>
