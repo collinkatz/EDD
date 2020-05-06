@@ -23,6 +23,7 @@ function codeAddress(origin, address) {
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == 'OK') {
       map.setCenter(results[0].geometry.location);
+      console.log(results[0].geometry.location)
       var marker = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location
@@ -35,11 +36,11 @@ function codeAddress(origin, address) {
   });
 }
 
-function placeMarker(origin, address) {
-  map.setCenter(address);
+function placeMarker(origin, cords) {
+  //map.setCenter(address);
     var marker = new google.maps.Marker({
     map: map,
-    position: address
+    position: cords
   });
 }
 

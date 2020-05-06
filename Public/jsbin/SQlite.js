@@ -1,6 +1,10 @@
 var sqlite3 = require('sqlite3').verbose();
+// const path = require('path')
+// const dbPath = path.resolve(__dirname, 'ProductIDData.db')
+// const db = new sqlite3.Database(dbPath)
 //var db = new sqlite3.Database('Z:/My Documents/EDD/db/ProductIDData.db');
-var db = new sqlite3.Database('C:/Users/trowe/Desktop/CollinandSamEDDproject/db/ProductIDData.db');
+//var db = new sqlite3.Database('C:/Users/trowe/Desktop/CollinandSamEDDproject/db/ProductIDData.db');
+var db = new sqlite3.Database('C:/Users/Collin/Desktop/Webapp/EDD/db/ProductIDData.db');
 
 class RaspberryPI {
     constructor(Name, Address, LatLng) {
